@@ -1,0 +1,22 @@
+body {
+    background-color: darkgrey;
+}
+
+#container {
+    background-color: cornflowerblue;
+    
+    text-align: center;
+    justify-content: center;
+    border: 3px solid white;
+    margin: auto;
+    height: 260px;
+    width: 500px;
+}
+
+p {
+    font-size: 25px;
+}
+
+input {
+    font-size: 20px;
+}
