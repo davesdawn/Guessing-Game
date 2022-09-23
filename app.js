@@ -1,29 +1,32 @@
 let output = document.getElementById('output');
 const submitButton = document.getElementById('submit');
-let resetButton = document.getElementById('reset');
+
 let attempts = 3;
 
 let randomNum = [Math.floor(Math.random() * 100)];
 console.log(randomNum);
 
-submitButton.addEventListener('click', function guessRight(){
+submitButton.addEventListener('click', function (){
     let input = document.getElementById('input').value;
     if(input == randomNum) {
         output.innerHTML = randomNum + " is the correct guess!!";
         output.style.color = 'green';
+        alert('You won! Click on reset to play again');
+        submitButton.disabled = true;
     }
-    else if( input < randomNum && input > 1) {
+    else if( input < randomNum && input <= 100) {
         output.innerHTML = 'Number is too low';
         output.style.color = 'red';
         attempts--;
     }
-    else if( input > randomNum && input < 100) {
+    else if( input > randomNum && input <= 100) {
         output.innerHTML = 'Number is too high';
         output.style.color = 'red';
         attempts--;
     }
-    else{
-        output.innerHTML = 'it has to be a number between 1 and 100';
+    else if( input < 1 || input > 100){
+        output.innerHTML = 'It has to be a number between 1 and 100';
+        output.style.color = 'red';
         attempts--;
     }
         if(attempts == 0) {
@@ -42,26 +45,5 @@ function clearAll(){
     submitButton.disabled = false;
     console.log(randomNum);
     
-    
-    if(input == randomNum) {
-        output.innerHTML = randomNum + " is the correct guess!!";
-        output.style.color = 'green';
-    }
-    else if( input < randomNum && input > 1) {
-        output.innerHTML = 'Number is too low';
-        output.style.color = 'red';
-        attempts--;
-    }
-    else if( input > randomNum && input < 100) {
-        output.innerHTML = 'Number is too high';
-        output.style.color = 'red';
-        attempts--;
-    }
-    else if(attempts == 0) {
-        alert('Game Over! Click on reset to play again');
-        submitButton.disabled = true;
-    }
-    
 }
-
 
